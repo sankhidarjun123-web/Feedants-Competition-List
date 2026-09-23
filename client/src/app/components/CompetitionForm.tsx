@@ -88,6 +88,7 @@ export default function CompetitionForm({
         }
 
         if (!user?._id) {
+            console.log(user);
             Alert.alert(
                 "Error",
                 "User information is missing."

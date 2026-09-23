@@ -17,7 +17,7 @@ export const authCheck = async (
 
         const user = await User.findOne({
             email: email.toLowerCase().trim(),
-        }).select("-password");
+        }).select("-password").lean();
 
         if (!user) {
             return res.status(401).json({
@@ -81,7 +81,7 @@ export const register = async (
         return res.status(201).json({
             message: "User registered successfully",
             user: {
-                id: user._id,
+                _id: user._id,
                 username: user.username,
                 email: user.email,
                 isLogin: user.isLogin,

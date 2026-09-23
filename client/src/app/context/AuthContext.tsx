@@ -70,6 +70,11 @@ export const AuthProvider = ({
     try {
       setLoading(true);
 
+      console.log(
+        "SERVER URL:",
+        process.env.EXPO_PUBLIC_SERVER_URL
+      );
+
       const email = await AsyncStorage.getItem("email");
 
       if (!email) {
